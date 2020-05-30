@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "my-doc-verification": {
+      "projectType": "library",
+      "root": "projects/my-doc-verification",
+      "sourceRoot": "projects/my-doc-verification/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/my-doc-verification/tsconfig.lib.json",
+            "project": "projects/my-doc-verification/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/my-doc-verification/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-doc-verification/src/test.ts",
+            "tsConfig": "projects/my-doc-verification/tsconfig.spec.json",
+            "karmaConfig": "projects/my-doc-verification/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/my-doc-verification/tsconfig.lib.json",
+              "projects/my-doc-verification/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "my-doc-verification-project"
 }
