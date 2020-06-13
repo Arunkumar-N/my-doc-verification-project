@@ -1,18 +1,39 @@
-<style>
-h1 {
-  text-align: center;
-  text-shadow: 2px 2px 5px grey;
-}
-div.polaroid {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-}
-  
-</style>
-<div class="polaroid">
-  <h1>My Document Verification</h1>
-  <img alt="Angular Library" src="https://hackernoon.com/drafts/pp6p36ml.png" width="10%">
+<div (click)="showModal = true"> 
+  <svg height="100" width="200" class="svg-shadow">
+    <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:rgb(214, 214, 194);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(245, 245, 240);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <polygon points="20,0 180,0 180,90 0,90 0,20"  fill="url(#grad1)"   style="stroke:grey;stroke-width:1"/>
+    Sorry, your browser does not support inline SVG.
+    <image href="https://cdn4.iconfinder.com/data/icons/business-set-1-13/128/a-43-512.png" x="10" y="20" height="50" width="50"/>
+    <line x1="75" y1="25" x2="170" y2="25" style="stroke:rgb(209, 198, 197);stroke-width:3" />
+    <line x1="75" y1="35" x2="170" y2="35" style="stroke:rgb(209, 198, 197);stroke-width:3" />
+    <line x1="75" y1="45" x2="170" y2="45" style="stroke:rgb(209, 198, 197);stroke-width:3" />
+    <line x1="75" y1="55" x2="170" y2="55" style="stroke:rgb(209, 198, 197);stroke-width:3" />
+    <image *ngIf="verified" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Checkmark.svg/1200px-Checkmark.svg.png" x="70" y="5" height="80" width="100" style="animation: fill .4s ease-in-out .4s forwards, scale .5s ease-in-out .9s both;"/>
+    <text *ngIf="!verified" fill="red" font-size="17" x="75" y="80" style="font-variant: small-caps;text-shadow: .5px .5px 3px #000000;animation: .1s forwards, scale-text .5s ease-in-out;">
+      Not Verified</text>
+  </svg>
+</div>
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span (click)="showModal = false; verified = true" class="close">&times;</span>
+      <h4>Modal Header</h4>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
 </div>
